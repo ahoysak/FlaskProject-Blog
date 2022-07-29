@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page 3</title>
+</head>
+<body>
+<div class="show_data_about_plant">
+            <a href="/head-plant">Back</a><br>
+</div>
+<div class="container mt-3">
+<a>All data about employees </a><br>
+    {% for el in all_data_plant %}
+
+    {% set a = el['location'] %}
+    {% set b = el['name_plant'] %}
+    {% set c = el['director_id'] %}
+
+    <b>{{a}}</b> <br>
+    <b>{{b}}</b> <br>
+    <b>{{c}}</b> <br>
+
+    <a href="/delete-plant/{{ c }}/del" class="btn danger">Видалити дані</a><br>
+    <a href="/update-plant/{{ c }}/up" class="btn success">Оновити дані</a><br>
+
+    {% endfor %}
+</div>
+</body>
+</html>

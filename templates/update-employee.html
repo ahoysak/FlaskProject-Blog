@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="update_data_for_employee">
+    <a>Page add data about Employee</a>
+    <form method="post">
+        <p>Name<br>
+        <input type="text" name="name" class="form control" value="{{ update_employee.name }}">
+        <p>Email</p><br>
+            <textarea name="email">{{ update_employee['email']}}</textarea></p>
+        <p>department_type</p>
+            <textarea name="department_type">{{ update_employee['department_type']}}</textarea></p>
+        <p><input type="submit" value="Відправити"></p>
+    </form>
+</div>
+</body>
+</html>
