@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Оновлення статті</title>
+</head>
+<body>
+<h1>Ви оновляєте статтю {{ update_article.name_article }}</h1>
+<div class="update_article">
+    <form method="post">
+        <a>Заголовок</a>
+        <textarea name="name_article">{{ update_article['name_article']}}</textarea></p>
+        <a>Текст статті</a>
+        <textarea name="text_article">{{ update_article['text_article']}}</textarea></p>
+        <p><input type="submit" value="Оновити"></p>
+    </form>
+</div>
+</body>
+</html>

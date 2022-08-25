@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <title>Головна сторінка!</title>
+    <script src="https://kit.fontawesome.com/999ca2bb93.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">HHD</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/authorization">Авторизація </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user-article">Ваш Аккаунт</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/all-posts">Всі статті</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% for el in pages.items %}
+  <div class="artical__body">
+
+           <h3 class="artical__title">{{el['name_article'] }}</h3>
+           <h4 class="artical__text"> {{el['text_article'] }} </h4><br>
+           <h6 class="artical__text">Категорія: {{el['category'] }} </h6><br>
+           <h6 class="artical__text">Коментарі до статті {{ el['name_article'] }}:</h6>
+          {% for comment in el.comments %}
+          {{ comment.users.user_name }} :
+          {{ comment.text_comment }}<br>
+          {% endfor %}
+          <div>
+              {{ el.likes|length }}
+              {% set Liked=false  %}
+              {% for like in el.likes %}
+                  {% if like.author == el.id %}
+                     {% set Liked = true %}
+                  {% endif %}
+              {% endfor %}
+              {% if liked %}
+              {% set icon_class = "fas fa-thumbs-up" %}
+              {% else %}
+              {% set icon_class = "fas fa-thumbs-up" %}
+              {% endif %}
+              <a ><i class="{{icon_class}}"></i></a>
+
+              <h5>Автор статті: {{ el.users.user_name }}</h5>
+  {% endfor %}
+          </div>
+  </div>
+
+  <nav>
+      <ul class="pagination">
+          <li {% if not pages.has_prev %} class="disabled" {% endif %} >
+              <a class="page-link" href="/?page={{ pages.prev_num }}" aria-label="Назад"><span aria-hidden="true">&laquo;</span></a>
+          </li>
+          {% for page in pages.iter_pages() %}
+              <li {% if page == pages.page%} class="active" {% endif %}>
+                  <a class="page-link" href="/?page= {{ page }}"> {{ page }}</a>
+              </li>
+          {% endfor %}
+          <li {% if not pages.has_next %} class="disabled" {% endif %} >
+              <a class="page-link" href="/?page={{ pages.next_num }}" aria-label="Вперед"><span aria-hidden="true">&raquo;</span></a>
+          </li>
+      </ul>
+  </nav>
+</body>
+</html>

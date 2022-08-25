@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Реєстрація</title>
+</head>
+<body>
+<!doctype html>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+<style>
+body{
+color:#fff;
+font-size: 20px;
+}
+</style>
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+   <style>
+      /* Обнуление */
+      *,
+      *::before,
+      *::after {
+         padding: 0;
+         margin: 0;
+         border: 0;
+         box-sizing: border-box;
+      }
+
+      a {
+         text-decoration: none;
+      }
+
+      ul,
+      ol,
+      li {
+         list-style: none;
+      }
+
+      img {
+         vertical-align: top;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+         font-weight: inherit;
+         font-size: inherit;
+      }
+
+      html,
+      body {
+         height: 100%;
+         line-height: 1;
+         font-size: 14px;
+         background-color: #333;
+         font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      }
+
+      /* ------------------ */
+
+      .wrapper {
+         width: 100%;
+         overflow: hidden;
+
+      }
+
+      .container {
+         width: 1440px;
+         height: 100vh;
+         display: flex;
+         margin: 0 auto;
+         display: flex;
+
+         justify-content: center;
+         align-items: center;
+      }
+
+      .form__body {
+         color: #fff;
+         width: 400px;
+
+      }
+
+      .form__title {
+         font-size: 40px;
+         font-weight: 700;
+         margin: 0px 0px 30px 0px;
+      }
+
+      .form__item {
+         margin: 0px 0px 20px 0px;
+      }
+
+      .form__label {
+         font-size: 18px;
+         display: block;
+         margin: 0px 0px 10px 0px;
+      }
+
+      .form__input {
+         height: 50px;
+         padding: 0px 20px;
+         border-radius: 5px;
+         width: 100%;
+         font-size: 18px;
+         transition: all 0.5s ease 0s;
+      }
+
+      .form__input:focus {
+         box-shadow: 0 0 15px #7a956b;
+      }
+
+      .form__button {
+         width: 100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         min-height: 60px;
+         background-color: #7a956b;
+         color: #fff;
+         font-size: 18px;
+         text-transform: uppercase;
+         letter-spacing: 2px;
+         font-weight: 700;
+         cursor: pointer;
+         border-radius: 20px;
+         box-shadow: 0 5px 0 #161b13;
+         transition: background-color 0.5s ease 0s;
+         position: relative;
+         top: 0;
+      }
+
+      .form__button:hover {
+         background-color: #4f6146;
+      }
+
+      .form__button:active {
+         top: 3px;
+         box-shadow: 0 2px 0 #161b13;
+      }
+
+
+   </style>
+
+   <div class="wrapper">
+      <div class="container">
+         <form action="#" method="post" id="form" class="form__body">
+            <h1 class="form__title">Реєстрація</h1>
+            <div class="form__item">
+               <label for="formName" class="form__label">Імя</label>
+               <input placeholder="Введіть ваше Ім'я" id="formName" type="text" name="user_name" class="form__input _req">
+            </div>
+             <div class="form__item">
+               <label for="formName" class="form__label">Прізвище</label>
+               <input placeholder="Введіть ваше Прізвище" id="formName" type="text" name="last_name" class="form__input _req">
+            </div>
+             <div class="form__item">
+               <label for="formName" class="form__label">Email</label>
+               <input placeholder="Введіть вашу пошту" id="formName" type="text" name="email_user" class="form__input _req">
+            </div>
+            <div class="form__item">
+               <label for="formEmail" class="form__label">Пароль:</label>
+               <input placeholder="Введіть пароль" id="formEmail" type="password" name="password" class="form__input _req _email">
+            </div>
+             <div class="form__item">
+               <label for="formName" class="form__label">Повтор паролю</label>
+               <input placeholder="Повторіть пароль" id="formName" type="password" name="password_check" class="form__input _req">
+            </div>
+            <button type="submit" class="form__button">Sign up</button>
+         </form>
+      </div>
+
+   </div>
+<a>----------------------------------------------------------------------------</a><br>
+<a>Якщо у вас вже є аккаунт,увійдіть :</a>
+<a href="/authorization"> Увійти.</a>
+</body>
+</html>

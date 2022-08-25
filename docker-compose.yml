@@ -10,6 +10,8 @@ services:
       - .:/application
     ports:
       - '8080:8080'
+    environment:
+      PYTHONBUFFERED: 1
     networks:
       - app
     depends_on:
@@ -35,3 +37,5 @@ networks:
     driver: bridge
 
 
+#sudo docker-compose exec mysql bash
+#mysql -u root -p^C
